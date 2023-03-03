@@ -1,6 +1,6 @@
 import { checkForName } from './js/nameChecker'
 import { handleSubmit } from './js/formHandler'
-import { meaningTest } from './js/requestHandler'
+import { checkMeaning } from './js/meaningChecker'
 
 import './styles/resets.scss'
 import './styles/base.scss'
@@ -11,7 +11,7 @@ import './styles/header.scss'
 export {
     checkForName,
     handleSubmit,
-    meaningTest
+    checkMeaning
    }
 
 // console.log(checkForName);
@@ -20,4 +20,4 @@ export {
 
 // alert("I EXIST")
 // console.log("CHANGE!!");
-meaningTest();
+checkMeaning();

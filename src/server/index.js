@@ -8,6 +8,10 @@ dotenv.config();
 
 const app = express()
 
+// Cors for cross origin allowance
+const cors = require('cors');
+app.use(cors());
+
 app.use(express.static('dist'))
 
 console.log(__dirname)
@@ -27,7 +31,7 @@ app.get('/test', function (req, res) {
     res.send(mockAPIResponse)
 })
 
-app.get('/getMeaningKey', (req, res)=> {
-    console.log('meaningTest called');
-    res.send(process.env.API_KEY);
+app.get('/getMeaningAPIKey', (req, res)=> {
+    console.log('/getMeaningAPIKey called');
+    res.send({ key: process.env.API_KEY });
 })
