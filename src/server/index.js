@@ -2,6 +2,10 @@ var path = require('path')
 const express = require('express')
 const mockAPIResponse = require('./mockAPI.js')
 
+
+const dotenv = require('dotenv');
+dotenv.config();
+
 const app = express()
 
 app.use(express.static('dist'))
@@ -21,4 +25,9 @@ app.listen(8081, function () {
 app.get('/test', function (req, res) {
     console.log('/test called');
     res.send(mockAPIResponse)
+})
+
+app.get('/getMeaningKey', (req, res)=> {
+    console.log('meaningTest called');
+    res.send(process.env.API_KEY);
 })

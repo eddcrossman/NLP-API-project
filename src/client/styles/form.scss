@@ -2,11 +2,25 @@ form {
     border: 1px solid #545454;
     border-radius: 3px;
     padding: 40px;
+
+    input {
+        padding: 5px 20px;
+        width: 100%;
+        line-height: 16px;
+        margin: 10px 0;
+
+        &[type="text"] {
+            height: 300px;
+        }
+
+        &[type="submit"]{
+            color: blue;
+        }
+    }
+
+    // input[type="text"] {
+    //     color: blue;
+    // }
 }
 
-input {
-    padding: 5px 20px;
-    width: 100%;
-    line-height: 16px;
-    margin: 10px 0;
-}
+
