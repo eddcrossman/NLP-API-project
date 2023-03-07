@@ -1,38 +1,29 @@
 const APP_BASE_URL = 'http://localhost:8081';
 
-async function getAPIKey() {
-    const result = await fetch(`${APP_BASE_URL}/getMeaningAPIKey`);
+async function checkMeaning(sourceURL) {
+    console.log('checkMeaning() called');
 
-   try {
-        let data  = await result.json()
-        return data.key;
-
-    } catch(error) {
-        console.log('getAPIKey() error', error);
-    }
-}
-
-async function checkMeaning(inputText) {
-    const url = 'https://api.meaningcloud.com/sentiment-2.1';
-    let formData = new FormData();
-    const meaningAPIKey = await getAPIKey();
-
-    formData.append("key", meaningAPIKey);
-    formData.append("lang", "en");
-    formData.append("txt", inputText);
-
-    const response = await fetch(`${url}`, {
+    const result = await fetch(`${APP_BASE_URL}/getMeaning`, {
         method: 'POST',
-        body: formData
-    })
+        credentials: 'same-origin',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ url: sourceURL }),
+    });
 
     try {
-        const newData = await response.json();
-        return newData;
+        let data  = await result.json();
+
+        if (data.status.code != 0) {
+            throw new Error();
+        }
+        
+        return data;
 
     } catch(error) {
-        console.log(error);
+        console.log(`checkMeaning() ${error}`);
+        throw new Error(error);
     }
 }
-
 export { checkMeaning }

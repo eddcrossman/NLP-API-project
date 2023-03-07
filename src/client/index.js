@@ -7,15 +7,8 @@ import './styles/footer.scss'
 import './styles/form.scss'
 import './styles/header.scss'
 
+
+
 export {
     handleSubmit,
-    checkMeaning
-   }
-
-// console.log(checkForName);
-// console.log(handleSubmit);
-
-
-// alert("I EXIST")
-// console.log("CHANGE!!");
-checkMeaning();
+    checkMeaning   }
