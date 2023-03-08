@@ -16,14 +16,14 @@ async function checkMeaning(sourceURL) {
         let data  = await result.json();
 
         if (data.status.code != 0) {
-            throw new Error();
+            throw new Error(data.status.msg);
         }
         
         return data;
 
     } catch(error) {
         console.log(`checkMeaning() ${error}`);
-        throw new Error(error);
+        throw error;
     }
 }
 export { checkMeaning }

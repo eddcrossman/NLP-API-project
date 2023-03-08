@@ -2,43 +2,41 @@
 <html lang="en" dir="ltr">
     <head>
         <meta charset="utf-8">
-        <title>Test</title>
+        <title>Internet Meaning Checker 1.0</title>
     </head>
 
     <body>
-
         <header>
-            <div class="">
-                Logo
-            </div>
-            <div class="">
-                navigation
-            </div>
+            <h1>WHAT DOES IT ALL MEAN?</h1>
+            <h2>internet meaning checker!</h2>
         </header>
 
         <main>
             <section>
-                <!-- <textarea id="name" rows="4" cols="50" name="comment" form="usrform"> -->
-                    <!-- Enter text here...</textarea> -->
                 <form id="usrform" class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="name" type="text" name="input" value="" placeholder="Name">
-                    <input type="submit" name="" value="submit" onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
+                    <label for="url">please enter the URL to be checked...</label>
+                    <input id="url" type="text" name="input" value="http://">
+                    <input type="submit" name="" value="now click here..." onclick="return Client.handleSubmit(event)" onsubmit="return Client.handleSubmit(event)">
                 </form>
             </section>
 
             <section>
-                <strong>Form Results:</strong>
                 <div id="results"></div>
+            </section>
+
+            <section>
+                <div id="explainer">
+                    <h2>But what does all that mean?</h2>
+                    <a href="https://learn.meaningcloud.com/developer/sentiment-analysis/2.1/doc/response">follow this link to find out</a>
+                </div>
             </section>
         </main>
 
         <footer>
-            <p>This is a footer</p>
+            <h3>made by Edd Crossman - March 2023</h3>
         </footer>
         <script>
-            // Check that service workers are supported
             if ('serviceWorker' in navigator) {
-                // Use the window load event to keep the page load performant
                 window.addEventListener('load', () => {
                     navigator.serviceWorker.register('/service-worker.js');
                 });

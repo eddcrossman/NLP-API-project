@@ -1,7 +1,13 @@
 form {
-    border: 1px solid #545454;
+    border: 10px dashed red;
     border-radius: 3px;
     padding: 40px;
+    background-color: yellow;
+
+    label {
+        font-size: 20px;
+        font-weight: bold;
+    }
 
     input {
         padding: 5px 20px;
@@ -10,17 +16,20 @@ form {
         margin: 10px 0;
 
         &[type="text"] {
-            height: 300px;
+            font-size: 15px;
         }
 
         &[type="submit"]{
-            color: blue;
+            font-size: 25px;
+            font-weight: bold;
+            height: 100px;
+            background-color: yellow;
+            box-shadow: 10px 10px;
+
+            &:hover{
+                background-color: orange;
+
+            }
         }
     }
-
-    // input[type="text"] {
-    //     color: blue;
-    // }
 }
-
-
